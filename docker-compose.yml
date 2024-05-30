@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  django_backend:
+    container_name: django-backend
+    build:
+      context: ..
+      dockerfile: DockerFile
+    entrypoint: /entrypoint.sh
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/myproject
+    restart: on-failure
